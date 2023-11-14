@@ -4,19 +4,30 @@
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // Get the values of the form fields
-        const title = document.getElementById('question-title').value;
-        const details = document.getElementById('question-details').value;
 
-        // Create a new question in the Firestore database
-        db.collection('questions').add({
-            title: title,
-            details: details
-        })
-        .then(() => {
-            console.log('Form submitted successfully');
-        })
-        .catch((error) => {
-            console.error('Error submitting form: ', error);
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+        
+            const questionInput = document.getElementById('question');
+            const question = questionInput.value.trim();
+        
+            if (question) {
+                const response = await fetch('your_api_endpoint', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question })
+                });
+        
+                if (response.ok) {
+                    questionInput.value = '';
+                    const result = await response.json();
+                    console.log('Question successfully submitted:', result);
+                } else {
+                    console.error('Error submitting question:', response.statusText);
+                }
+            } else {
+                console.log('Please enter a valid question.');
+            }
         });
-    });
