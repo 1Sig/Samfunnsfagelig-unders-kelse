@@ -1,17 +1,16 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
   }
   
   #questions-container {
-    margin-bottom: 20px;
+    text-align: center;
   }
   
   .question {
-    margin-bottom: 10px;
-  }
-  
-  input[type="number"] {
-    width: 50px;
+    margin-bottom: 20px;
   }
   

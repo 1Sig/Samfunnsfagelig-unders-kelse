@@ -8,24 +8,75 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div id="chart-container" style="width: 200px; height: 200px; float: left;">
-    <canvas id="pie-chart"></canvas>
-  </div>
-  <div id="questions-container" style="margin-left: 220px;">
+  <div id="questions-container">
     <div class="question">
-      <label>How would you rate the design?</label>
+      <label>How would you rate question 1?</label>
+      <br>
       <input type="number" min="0" max="100" value="0" onchange="updatePoints(0, this.value)">
     </div>
     <div class="question">
-      <label>Did you find the content helpful?</label>
+      <label>How would you rate question 2?</label>
+      <br>
       <input type="number" min="0" max="100" value="0" onchange="updatePoints(1, this.value)">
     </div>
     <div class="question">
-      <label>Was the website easy to navigate?</label>
+      <label>How would you rate question 3?</label>
+      <br>
       <input type="number" min="0" max="100" value="0" onchange="updatePoints(2, this.value)">
     </div>
+    <div class="question">
+      <label>How would you rate question 4?</label>
+      <br>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(3, this.value)">
+    </div>
+    <div class="question">
+      <label>How would you rate question 5?</label>
+      <br>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(4, this.value)">
+    </div>
+    <div class="question">
+      <label>How would you rate question 6?</label>
+      <br>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(5, this.value)">
+    </div>
+    <div class="question">
+      <label>How would you rate question 7?</label>
+      <br>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(6, this.value)">
+    </div>
+    <div class="question">
+      <label>How would you rate question 8?</label>
+      <br>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(7, this.value)">
+    </div>
+    <div class="question">
+      <label>How would you rate question 9?</label>
+      <br>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(8, this.value)">
+    </div>
+    <div class="question">
+      <label>How would you rate question 10?</label>
+      <br>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(9, this.value)">
+    </div>
+    <div class="question">
+      <label>How would you rate question 11?</label>
+      <br>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(10, this.value)">
+    </div>
+    <div class="question">
+      <label>How would you rate question 12?</label>
+      <br>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(11, this.value)">
+    </div>
   </div>
-  <div id="total-points">Max Points: <span id="max-points">100</span></div>
+  <div id="points-left-container">
+    <p>Points Left: <span id="points-left">100</span></p>
+  </div>
+  <div id="chart-container" style="display: none;">
+    <canvas id="chart"></canvas>
+    <div id="legend"></div>
+  </div>
   <button onclick="submitForm()">Submit</button>
 
   <script src="script.js"></script>
