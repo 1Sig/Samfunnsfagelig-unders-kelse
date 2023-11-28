@@ -1,52 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="/app.js"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyA5DmAARV4NU3RfSjiDhZY4Lp5vHNmDqv0",
-          authDomain: "samf-opg.firebaseapp.com",
-          projectId: "samf-opg",
-          storageBucket: "samf-opg.appspot.com",
-          messagingSenderId: "309220923903",
-          appId: "1:309220923903:web:bf9b926b5e821d4b93afca",
-          measurementId: "G-1HKEXP5WGL"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Questionnaire</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    
-<form id="myForm">
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName">
+  <div id="chart-container" style="width: 200px; height: 200px; float: left;">
+    <canvas id="pie-chart"></canvas>
+  </div>
+  <div id="questions-container" style="margin-left: 220px;">
+    <div class="question">
+      <label>How would you rate the design?</label>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(0, this.value)">
+    </div>
+    <div class="question">
+      <label>Did you find the content helpful?</label>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(1, this.value)">
+    </div>
+    <div class="question">
+      <label>Was the website easy to navigate?</label>
+      <input type="number" min="0" max="100" value="0" onchange="updatePoints(2, this.value)">
+    </div>
+  </div>
+  <div id="total-points">Max Points: <span id="max-points">100</span></div>
+  <button onclick="submitForm()">Submit</button>
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName">
-
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email" autocomplete="off">
-
-    <label for="phoneNumber">Phone Number:</label>
-    <input type="text" id="phoneNumber" name="phoneNumber">
-
-    <label for="gender">Gender:</label>
-    <input type="text" id="gender" name="gender">
-
-    <button type="submit">Submit</button>
-</form>
-
+  <script src="script.js"></script>
 </body>
 </html>
