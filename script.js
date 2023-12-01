@@ -8,46 +8,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Define your questions and their default points
   const maxPoints = 100;
-  const questions = [
-    { points: 0 },
-    { points: 0 },
-    { points: 0 },
-    { points: 0 },
-    { points: 0 },
-    { points: 0 },
-    { points: 0 },
-    { points: 0 },
-    { points: 0 },
-    { points: 0 },
-    { points: 0 },
-    { points: 0 },
-  ];
+  const minPointsPerQuestion = 1;
+  const questions = Array.from({ length: 12 }, () => ({ points: 1 }));
 
   // Function to update points and re-render questions
   window.updatePoints = function (index, value) {
     value = parseInt(value);
 
     // Check if the change is valid (within the maxPoints limit)
-    if (value >= 0 && value <= 100) {
-      const currentPoints = questions.reduce((sum, question) => sum + question.points, 0);
-      const pointsLeft = maxPoints - currentPoints;
-
-      if (pointsLeft >= 0) {
-        questions[index].points = value;
-        updateChart();
-        updatePointsLeft(pointsLeft);
-      } else {
-        // If pointsLeft is negative, reset the input
-        questionsContainer.children[index].querySelector('input').value = questions[index].points;
-      }
+    if (value >= minPointsPerQuestion && value <= questions[index].points + maxPoints - getCurrentTotalPoints(index)) {
+      questions[index].points = value;
+      updateChart();
+      updatePointsLeft();
     } else {
       // If the input is invalid, reset the input
       questionsContainer.children[index].querySelector('input').value = questions[index].points;
     }
   };
 
+  // Function to get the current total points assigned to questions
+  function getCurrentTotalPoints(excludeIndex) {
+    return questions.reduce((sum, question, index) => (index !== excludeIndex ? sum + question.points : sum), 0);
+  }
+
   // Function to update the points left counter
-  function updatePointsLeft(pointsLeft) {
+  function updatePointsLeft() {
+    const pointsLeft = maxPoints - getCurrentTotalPoints();
     pointsLeftContainer.textContent = pointsLeft;
   }
 
@@ -109,4 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
     questionsContainer.style.display = 'none';
     chartContainer.style.display = 'block';
   };
+
+  // Initial update of points left counter
+  updatePointsLeft();
 });

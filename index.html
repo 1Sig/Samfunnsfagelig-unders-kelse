@@ -12,72 +12,74 @@
     <div class="question">
       <label>How would you rate question 1?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(0, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(0, this.value)">
     </div>
     <div class="question">
       <label>How would you rate question 2?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(1, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(1, this.value)">
     </div>
     <div class="question">
       <label>How would you rate question 3?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(2, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(2, this.value)">
     </div>
     <div class="question">
       <label>How would you rate question 4?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(3, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(3, this.value)">
     </div>
     <div class="question">
       <label>How would you rate question 5?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(4, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(4, this.value)">
     </div>
     <div class="question">
       <label>How would you rate question 6?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(5, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(5, this.value)">
     </div>
     <div class="question">
       <label>How would you rate question 7?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(6, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(6, this.value)">
     </div>
     <div class="question">
       <label>How would you rate question 8?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(7, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(7, this.value)">
     </div>
     <div class="question">
       <label>How would you rate question 9?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(8, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(8, this.value)">
     </div>
     <div class="question">
       <label>How would you rate question 10?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(9, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(9, this.value)">
     </div>
     <div class="question">
       <label>How would you rate question 11?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(10, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(10, this.value)">
     </div>
     <div class="question">
       <label>How would you rate question 12?</label>
       <br>
-      <input type="number" min="0" max="100" value="0" onchange="updatePoints(11, this.value)">
+      <input type="number" min="1" max="100" value="1" onchange="updatePoints(11, this.value)">
     </div>
   </div>
-  <div id="points-left-container">
-    <p>Points Left: <span id="points-left">100</span></p>
+  <div id="bottom-container">
+    <div id="points-left-container">
+      <p>Points Left: <span id="points-left">88</span></p>
+    </div>
+    <button onclick="submitForm()">Submit</button>
   </div>
   <div id="chart-container" style="display: none;">
     <canvas id="chart"></canvas>
     <div id="legend"></div>
   </div>
-  <button onclick="submitForm()">Submit</button>
 
   <script src="script.js"></script>
 </body>
